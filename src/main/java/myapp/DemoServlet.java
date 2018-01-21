@@ -23,9 +23,13 @@ import javax.servlet.http.HttpServletResponse;
 
 public class DemoServlet extends HttpServlet {
   @Override
-  public void doGet(HttpServletRequest req, HttpServletResponse resp)
+  public void doGet(HttpServletRequest req, HttpServletResponse res)
       throws IOException {
-    resp.setContentType("text/plain");
-    resp.getWriter().println("{ \"name\": \"World\" }");
+		res.setContentType("text/plain");
+		res.setCharacterEncoding("UTF-8");
+		
+		new FibonacciDemo().start();
+		res.getWriter().println("Task is running , please check server log");
+		res.getWriter().flush();
   }
 }
