@@ -17,9 +17,13 @@
 package myapp;
 
 import java.io.IOException;
+import java.util.concurrent.ThreadFactory;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.appengine.api.ThreadManager;
 
 public class DemoServlet extends HttpServlet {
   @Override
@@ -28,7 +32,10 @@ public class DemoServlet extends HttpServlet {
 		res.setContentType("text/plain");
 		res.setCharacterEncoding("UTF-8");
 		
-		new FibonacciDemo().start();
+		ThreadFactory tf = ThreadManager.currentRequestThreadFactory();
+		
+		tf.newThread(new  FibonacciDemo());
+		
 		res.getWriter().println("Task is running , please check server log");
 		res.getWriter().flush();
   }
