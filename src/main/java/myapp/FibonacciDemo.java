@@ -23,7 +23,7 @@ public class FibonacciDemo implements Runnable {
 				//record(flag);
 				System.out.println("#"+flag);			
 				
-				Thread.sleep(500);
+				//Thread.sleep(500);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
