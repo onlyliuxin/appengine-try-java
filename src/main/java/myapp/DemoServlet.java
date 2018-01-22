@@ -34,7 +34,7 @@ public class DemoServlet extends HttpServlet {
 		
 		ThreadFactory tf = ThreadManager.currentRequestThreadFactory();
 		
-		tf.newThread(new  FibonacciDemo());
+		tf.newThread(new  FibonacciDemo()).start();;
 		
 		res.getWriter().println("Task is running , please check server log");
 		res.getWriter().flush();

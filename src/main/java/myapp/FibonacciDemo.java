@@ -30,7 +30,7 @@ public class FibonacciDemo implements Runnable {
 		}
 	}
 	public void record(int fiboIndex) {
-		Entity fiboTime = new Entity("javaFiboTime");
+		Entity fiboTime = new Entity("liuxin-javaFiboTime");
 		fiboTime.setProperty("FiboIndex", fiboIndex);
 		fiboTime.setProperty("Timestamp", new Date());
 		
